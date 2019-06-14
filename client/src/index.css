@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+nav{
+  /* border:1px solid red; */
+  height:50px;
+  display:flex;
+  align-items:center;
+  padding:0 35%;
+  /* background-color:hsl(0, 20%, 50%); */
+  background-color:rgb(233, 179, 179);
+}
+
+nav > a {
+  
+  width:100px;
+  /* border:1px solid green; */
+  color:white;
+  text-decoration:none;
+  margin-left:20px;
+}
+
+nav > a:hover{
+  /* color:white; */
+  background-color: rgb(194, 179, 179);
+
+}
+
+form {
+  padding:0 10%;
+  /* border:1px solid green; */
+  display:flex;
+  flex-direction:column;
+  width:20%;
+  height:270px;
+  margin:0 auto;
+  background-color: rgb(194, 179, 179);
+}
+
+button{
+  margin-top:20px;
+  font-size:1em;
+  color:gray;
+}
+
+button:hover{
+  color:white;
+  background-color: gray;
+
+}
+
+input{
+  margin-bottom:10px;
+  height:30px;
+  font-size:1em;
+}
+
+label{
+  text-align:left;
+  margin-bottom:5px;
+  color:white;
+}
+
+h2{
+  color:white;
+
+}
+
+.cards{
+  border:1px solid rgba(242, 255, 0, 0.988);
+  width: 60%;
+  margin: 20px 20% 32px;
+  cursor: pointer;
+  background-color: #EEE8AA;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
+}
+
+h1{
+  color:gray;
+}
