@@ -2,6 +2,8 @@ import React from 'react';
 import {Route,NavLink} from 'react-router-dom'
 import Login from './components/Login'
 import Register from './components/Register'
+import Users from './components/Users'
+import {axiosWithAuth} from './axiosWithAuth'
 import './App.css';
 
 class App extends React.Component {

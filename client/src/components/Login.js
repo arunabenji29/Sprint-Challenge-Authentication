@@ -43,6 +43,7 @@ class Login extends React.Component{
     return (
         <div>
             <form>
+                <h2>Login</h2>
             <label htmlFor='username'>Username</label>
                 <input value={this.state.username}
                 placeholder='username'
