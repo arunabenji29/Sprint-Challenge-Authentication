@@ -2,6 +2,8 @@ const axios = require('axios');
 const bcrypt = require('bcryptjs')
 const { authenticate } = require('../auth/authenticate');
 const Users = require('./db-model.js')
+const jwt = require('jsonwebtoken')
+const secret = require('./secrets.js')
 
 module.exports = server => {
   server.post('/api/register', register);
@@ -29,6 +31,26 @@ function register(req, res) {
 
 function login(req, res) {
   // implement user login
+  let {username,password} = req.body
+
+  Users.findBy({username})
+  .first()
+  .then(user => {
+    if(user && bcrypt.compareSync(password,user.password)){
+      const token = generateToken(user)
+
+      res.status(200).json({
+        message:`welcome ${user.username} your id is ${user.id}`,
+        token
+      })
+    }
+    else {
+      res.status(401).json({message: 'invalid credentials'})
+    }
+  })
+  .catch(error => {
+    res.status(500).json(error)
+  })
 }
 
 function getJokes(req, res) {
@@ -44,4 +66,16 @@ function getJokes(req, res) {
     .catch(err => {
       res.status(500).json({ message: 'Error Fetching Jokes', error: err });
     });
+}
+
+function generateToken(user){
+  const payload = {
+    subject:user.id,
+  }
+
+  const options = {
+    expiresIn:'8h'
+  }
+
+  return jwt.sign(payload,secret.jwtSecret,options)
 }
